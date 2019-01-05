@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from myapp.models import ToDoItem
+from myapp.serializers import ToDoItemSerializer
+from rest_framework import generics
 
-# Create your views here.
+class ToDoItemListCreate(generics.ListCreateAPIView):
+	queryset = ToDoItem.objects.all()
+	serializer_class = ToDoItemSerializer
